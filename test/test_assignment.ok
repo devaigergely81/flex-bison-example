@@ -1,0 +1,19 @@
+program test_assignment
+    natural a
+    natural b
+    boolean c
+    boolean d
+begin
+    a := 1
+    b := 2
+    c := false
+    d := true
+    a := a + b
+    b := b - 1
+    c := a > b or c
+    d := not d
+    write(a)
+    write(b)
+    write(c)
+    write(d)
+end

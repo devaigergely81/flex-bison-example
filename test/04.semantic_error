@@ -1,0 +1,21 @@
+program divisor
+  natural n
+  boolean found
+  natural divisor
+  natural i
+begin
+  read(n)
+  i := 2
+  found := false
+  while not found and i < n do
+    if n % (i = 0) then
+      found := true
+      divisor := i
+    endif
+    i := i+1
+  done
+  write(found)
+  if found then
+    write(divisor)
+  endif
+end

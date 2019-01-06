@@ -1,0 +1,23 @@
+program test_write_natural
+    natural x
+    natural y
+begin
+    x := 3
+    y := 5
+    if x > y then
+        write(x)
+    else
+        write(y)
+    endif
+    if x < y then
+        write(x)
+    else
+        write(y)
+    endif
+    if true then
+        write(x)
+    endif
+    if false then
+        write(y)
+    endif
+end

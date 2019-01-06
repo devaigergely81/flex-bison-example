@@ -1,0 +1,14 @@
+program test_write_natural
+    natural n
+    natural i
+begin
+    read(n)
+    while not (n = 0) do
+        i := n
+        while i > 0 do
+            write(n)
+            i := i-1
+        done
+        read(n)
+    done
+end

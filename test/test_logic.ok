@@ -1,0 +1,14 @@
+program test_logic
+begin
+    write(true and true)
+    write(true and false)
+    write(false and true)
+    write(false and false)
+    write(true or true)
+    write(true or false)
+    write(false or true)
+    write(false or false)
+    write(not false)
+    write(not true)
+    write(not (3<2 and 2<3) or 3-1=3)
+end

@@ -1,0 +1,5 @@
+program test_write_boolean
+begin
+    write(false)
+    write(true)
+end

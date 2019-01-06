@@ -48,7 +48,7 @@ int yylex(yy::parser::semantic_type* yylval, yy::parser::location_type* yylloc);
 %%
 
 start:
-	PRG ID declarations BEG commands END
+    PRG ID declarations BEG commands END
     {
         type_check_commands($5);
         if(current_mode == compiler) {
@@ -61,30 +61,30 @@ start:
 ;
 
 declarations:
-	// empty
+    // empty
 |
-	declarations declaration
+    declarations declaration
 ;
 
 declaration:
-	BOO ID
+    BOO ID
     {
-		symbol(@1.begin.line, $2, boolean).declare();
+        symbol(@1.begin.line, $2, boolean).declare();
     }
 |
-	NAT ID
+    NAT ID
     {
-		symbol(@1.begin.line, $2, natural).declare();
+        symbol(@1.begin.line, $2, natural).declare();
     }
 ;
 
 commands:
-	// empty
+    // empty
     {
         $$ = new std::list<instruction*>();
     }
 |
-	commands command
+    commands command
     {
         $1->push_back($2);
         $$ = $1;
@@ -92,35 +92,35 @@ commands:
 ;
 
 command:
-	REA OP ID CL
+    REA OP ID CL
     {
         $$ = new read_instruction(@1.begin.line, $3);
     }
 |
-	WRI OP expression CL
+    WRI OP expression CL
     {
         $$ = new write_instruction(@1.begin.line, $3);
     }
 |
-	ID ASN expression
+    ID ASN expression
     {
         $$ = new assign_instruction(@2.begin.line, $1, $3);
     }
 |
-	IF expression THE commands EIF
-	{
-		$$ = new if_instruction(@1.begin.line, $2, $4, 0);
-	}
+    IF expression THE commands EIF
+    {
+        $$ = new if_instruction(@1.begin.line, $2, $4, 0);
+    }
 |
-	IF expression THE commands ELS commands EIF
-	{
-		$$ = new if_instruction(@1.begin.line, $2, $4, $6);
-	}
+    IF expression THE commands ELS commands EIF
+    {
+        $$ = new if_instruction(@1.begin.line, $2, $4, $6);
+    }
 |
-	WHI expression DO commands DON
-	{
-		$$ = new while_instruction(@1.begin.line, $2, $4);
-	}
+    WHI expression DO commands DON
+    {
+        $$ = new while_instruction(@1.begin.line, $2, $4);
+    }
 ;
 
 expression:

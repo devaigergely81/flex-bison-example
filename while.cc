@@ -9,12 +9,12 @@
 yyFlexLexer *lexer;
 
 int yylex(yy::parser::semantic_type* yylval, yy::parser::location_type* yylloc) {
-  yylloc->begin.line = lexer->lineno();
-  int token = lexer->yylex();
-  if(token == yy::parser::token::ID || token == yy::parser::token::NUM) {
-    yylval->build(std::string(lexer->YYText()));
-  }
-  return token;
+    yylloc->begin.line = lexer->lineno();
+    int token = lexer->yylex();
+    if(token == yy::parser::token::ID || token == yy::parser::token::NUM) {
+        yylval->build(std::string(lexer->YYText()));
+    }
+    return token;
 }
 
 void yy::parser::error(const location_type& loc, const std::string& msg) {

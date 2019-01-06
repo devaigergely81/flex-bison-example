@@ -5,8 +5,8 @@
 mode current_mode;
 
 void error(int line, std::string text) {
-  std::cerr << "Line " << line << ": Error: " << text << std::endl;
-  exit(1);
+    std::cerr << "Line " << line << ": Error: " << text << std::endl;
+    exit(1);
 }
 
 expression::~expression() {
